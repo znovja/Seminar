@@ -7,6 +7,7 @@ table 50100 "CSD Seminar Setup"
         field(10; "Primary Key"; Code[10])
         {
             Caption = 'Primary Key';
+            TableRelation = "No. Series";
         }
 
         field(20; "Seminar Nos."; Code[20])
