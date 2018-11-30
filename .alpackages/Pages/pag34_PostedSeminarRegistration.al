@@ -98,20 +98,21 @@ page 50134 "CSD Posted Seminar Reg."
         }
         area(factboxes)
         {
-            part(; 50117)
+            part("Seminar Details FactBox"; "CSD Seminar Details FactBox")
             {
-                SubPageLink = No.=Field(Seminar No.);
-                //SubPageLink = "Document No." = field ("No.");
+                SubPageLink = "No." = field ("Seminar No.");
             }
-            part(;9084)
+            part("Customer Details FactBox"; "Customer Details FactBox")
             {
                 Provider = SeminarRegistrationLines;
-                SubPageLink = No.=Field(Bill-to Customer No.);
+                SubPageLink = "No." = field ("Bill-to Customer No.");
             }
-            systempart(;Links)
+            
+    
+            systempart("Links";Links)
             {
             }
-            systempart(;Notes)
+            systempart("Notes";Notes)
             {
             }
         }
@@ -128,17 +129,19 @@ page 50134 "CSD Posted Seminar Reg."
                 {
                     Caption = 'Co&mments';
                     Image = Comment;
-                    RunObject = Page 50106;
-                    RunPageLink = No.=Field(No.);
-                    RunPageView = where(Document Type=const(Posted Seminar Registration));
+                    RunObject = Page "CSD Seminar Comment Sheet";
+                    RunPageLink = "No."=Field("No.");
+                    RunPageView = where("Table Name"=const("Posted Seminar Registration"));
                 }
+                
                 action("&Charges")
                 {
                     Caption = '&Charges';
                     Image = Costs;
-                    RunObject = Page 50139;
-                    RunPageLink = Document No.=Field(No.);
+                    RunObject = Page "CSD Posted Seminar Charges";
+                    RunPageLink = "Document No." = Field ("No.");
                 }
+                
             }
         }
     }
