@@ -107,12 +107,12 @@ page 50134 "CSD Posted Seminar Reg."
                 Provider = SeminarRegistrationLines;
                 SubPageLink = "No." = field ("Bill-to Customer No.");
             }
-            
-    
-            systempart("Links";Links)
+
+
+            systempart("Links"; Links)
             {
             }
-            systempart("Notes";Notes)
+            systempart("Notes"; Notes)
             {
             }
         }
@@ -130,10 +130,10 @@ page 50134 "CSD Posted Seminar Reg."
                     Caption = 'Co&mments';
                     Image = Comment;
                     RunObject = Page "CSD Seminar Comment Sheet";
-                    RunPageLink = "No."=Field("No.");
-                    RunPageView = where("Table Name"=const("Posted Seminar Registration"));
+                    RunPageLink = "No." = Field ("No.");
+                    RunPageView = where ("Table Name" = const ("Posted Seminar Registration"));
                 }
-                
+
                 action("&Charges")
                 {
                     Caption = '&Charges';
@@ -141,7 +141,7 @@ page 50134 "CSD Posted Seminar Reg."
                     RunObject = Page "CSD Posted Seminar Charges";
                     RunPageLink = "Document No." = Field ("No.");
                 }
-                
+
             }
         }
     }

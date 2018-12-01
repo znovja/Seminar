@@ -46,12 +46,12 @@ page 50136 "CSD Posted Seminar Reg. List"
         {
             part(xxx; "CSD Seminar Details FactBox")
             {
-                SubPageLink = "No."=Field("Seminar No.");
+                SubPageLink = "No." = Field ("Seminar No.");
             }
-            systempart("Links";Links)
+            systempart("Links"; Links)
             {
             }
-            systempart("Notes";Notes)
+            systempart("Notes"; Notes)
             {
             }
         }
@@ -64,23 +64,23 @@ page 50136 "CSD Posted Seminar Reg. List"
             group("&Seminar Registration")
             {
                 Caption = '&Seminar Registration';
+
                 action("Co&mments")
                 {
                     Caption = 'Co&mments';
                     Image = Comment;
                     RunObject = Page "CSD Seminar Comment Sheet";
-                    RunPageLink = "No."=Field("No.");
-                    RunPageView = where ("Table Name" = Const ("Seminar Registration"));
+                    RunPageLink = "No." = Field ("No.");
+                    RunPageView = where ("Table Name" = const ("Posted Seminar Registration"));
                 }
-                
                 action("&Charges")
                 {
                     Caption = '&Charges';
                     Image = Costs;
-                    RunObject = Page 50124;
+                    RunObject = Page "CSD Posted Seminar Charges";
                     RunPageLink = "Document No." = Field ("No.");
                 }
-                
+
             }
         }
     }

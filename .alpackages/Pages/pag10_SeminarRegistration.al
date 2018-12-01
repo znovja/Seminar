@@ -131,6 +131,7 @@ page 50110 "CSD Seminar Registration"
             group("&Seminar Registration")
             {
                 Caption = '&Seminar Registration';
+                /*
                 action("Co&mments")
                 {
                     Caption = 'Co&mments';
@@ -138,6 +139,22 @@ page 50110 "CSD Seminar Registration"
                     RunObject = Page "CSD Seminar Comment Sheet";
                     RunPageLink = "No." = Field ("No.");
                     RunPageView = where ("Table Name" = Const ("Seminar Registration"));
+                }
+                action("&Charges")
+                {
+                    Caption = '&Charges';
+                    Image = Costs;
+                    RunObject = Page 50124;
+                    RunPageLink = "Document No." = Field ("No.");
+                }
+                */
+                action("Co&mments")
+                {
+                    Caption = 'Co&mments';
+                    Image = Comment;
+                    RunObject = Page 50106;
+                    RunPageLink = "No." = Field ("No.");
+                    RunPageView = where ("Table Name" = const ("Seminar Registration"));
                 }
                 action("&Charges")
                 {
