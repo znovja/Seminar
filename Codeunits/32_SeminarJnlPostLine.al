@@ -74,7 +74,7 @@ codeunit 50132 "CSD Seminar Jnl.-Post Line"
         SeminarLedgerEntry."Journal Batch Name" := SeminarJnlLine."Journal Batch Name";
         SeminarLedgerEntry."Source Code" := SeminarJnlLine."Source Code";
         SeminarLedgerEntry."Reason Code" := SeminarJnlLine."Reason Code";
-        SeminarLedgerEntry."No. Series" := SeminarJnlLine."Posting No. Series";
+        SeminarLedgerEntry."Posting No. Series" := SeminarJnlLine."Posting No. Series";
         SeminarLedgerEntry."Entry No." := NextEntryNo;
         NextEntryNo += 1;
         SeminarLedgerEntry.Insert;

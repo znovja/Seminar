@@ -3,8 +3,12 @@ table 50132 "CSD Seminar Ledger Entry"
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 7 - Lab 1
     //     - Created new table
+    // Chapter 8 - Lab 2-1
+    // Added key2
 
     Caption = 'Seminar Ledger Entry';
+    LookupPageId = "CSD Seminar Ledger Entries";
+    DrillDownPageId = "CSD Seminar Ledger Entries";
 
     fields
     {
@@ -111,7 +115,7 @@ table 50132 "CSD Seminar Ledger Entry"
         field(22; "Source Type"; Option)
         {
             Caption = 'Source Type';
-            OptionCaption = ' ,Seminar';
+            OptionCaption = '" ,Seminar"';
             OptionMembers = " ",Seminar;
         }
         field(23; "Source No."; Code[20])
@@ -134,14 +138,13 @@ table 50132 "CSD Seminar Ledger Entry"
             Caption = 'Reason Code';
             TableRelation = "Reason Code";
         }
-        field(27; "No. Series"; Code[10])
+        field(27; "Posting No. Series"; Code[10])
         {
-            Caption = 'No. Series';
+            Caption = 'Posting No. Series';
             TableRelation = "No. Series";
         }
-        field(28; "User ID"; Code[50])
+        field(28; "User Id"; code[50])
         {
-            Caption = 'User ID';
             TableRelation = user where ("User Name" = field ("User Id"));
             ValidateTableRelation = false;
             trigger OnLookup();
@@ -153,9 +156,13 @@ table 50132 "CSD Seminar Ledger Entry"
         }
     }
 
+
     keys
     {
         key(Key1; "Entry No.")
+        {
+        }
+        key(key2; "Document No.", "Posting Date")
         {
         }
     }

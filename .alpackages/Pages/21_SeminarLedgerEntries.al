@@ -113,13 +113,19 @@ page 50121 "CSD Seminar Ledger Entries"
     {
         area(Processing)
         {
-            action(ActionName)
+            action("&Navigate")
             {
-                ApplicationArea = All;
+                Caption = '&Navigate';
+                Image = Navigate;
+                Promoted = true;
+                PromotedCategory = Process;
 
                 trigger OnAction();
+                var
+                    Navigate: page Navigate;
                 begin
-
+                    Navigate.SetDoc("Posting Date", "Document No.");
+                    Navigate.RUN;
                 end;
             }
         }
