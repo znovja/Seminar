@@ -3,11 +3,12 @@ page 50110 "CSD Seminar Registration"
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 6 - Lab 3-1
     //     - Created new page
+    //   Chapter 7 - Lab 5-8
+    //     - Added Post Action  
 
     Caption = 'Seminar Registration';
     PageType = Document;
     SourceTable = "CSD Seminar Reg. Header";
-    UsageCategory = tasks;
 
     layout
     {
@@ -58,7 +59,6 @@ page 50110 "CSD Seminar Registration"
                 {
                 }
             }
-
             part(SeminarRegistrationLines; "CSD Seminar Reg. Subpage")
             {
                 Caption = 'Lines';
@@ -115,6 +115,7 @@ page 50110 "CSD Seminar Registration"
                 Provider = SeminarRegistrationLines;
                 SubPageLink = "No." = field ("Bill-to Customer No.");
             }
+
             systempart("Links"; Links)
             {
             }
@@ -131,23 +132,6 @@ page 50110 "CSD Seminar Registration"
             group("&Seminar Registration")
             {
                 Caption = '&Seminar Registration';
-                /*
-                action("Co&mments")
-                {
-                    Caption = 'Co&mments';
-                    Image = Comment;
-                    RunObject = Page "CSD Seminar Comment Sheet";
-                    RunPageLink = "No." = Field ("No.");
-                    RunPageView = where ("Table Name" = Const ("Seminar Registration"));
-                }
-                action("&Charges")
-                {
-                    Caption = '&Charges';
-                    Image = Costs;
-                    RunObject = Page 50124;
-                    RunPageLink = "Document No." = Field ("No.");
-                }
-                */
                 action("Co&mments")
                 {
                     Caption = 'Co&mments';
@@ -163,6 +147,35 @@ page 50110 "CSD Seminar Registration"
                     RunObject = Page 50124;
                     RunPageLink = "Document No." = Field ("No.");
                 }
+            }
+        }
+        area(Processing)
+        {
+            action("&Post")
+            {
+                Caption = '&Post';
+                Image = PostDocument;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Process;
+                ShortcutKey = F9;
+                RunObject = codeunit "CSD Seminar-Post (Yes/No)";
+            }
+            action("&Print")
+            {
+                Caption = '&Print';
+                Image = Print;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Process;
+                trigger OnAction();
+                var
+                    SeminarReportSelection: Record
+"CSD Seminar Report Selections";
+                begin
+                    SeminarReportSelection.PrintReportSelection
+                    (SeminarReportSelection.Usage::Registration, Rec);
+                end;
             }
         }
     }
